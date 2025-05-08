@@ -14,9 +14,14 @@ import java.util.List;
 
 public class QAPage {
     private static final Logger logger = LogManager.getLogger(QAPage.class);
-    WebDriver driver;
-    String originalWindow;
-    WebDriverWait wait;
+    private WebDriver driver;
+    private String originalWindow;
+    private WebDriverWait wait;
+
+    public QAPage(WebDriver driver) {
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+    }
 
     private By seeAllQAJobsLink = By.linkText("See all QA jobs");
     private By acceptQACookie = By.cssSelector("[id=\"wt-cli-accept-all-btn\"]");
@@ -26,11 +31,6 @@ public class QAPage {
     private By qAAssuranceItem = By.cssSelector("[class='select2-results'] > ul > li:nth-of-type(16)");
     private List<WebElement> jobs;
     private By searchResultCardview = By.xpath("//*[@id='jobs-list']/div[2]/div/a");
-
-    public QAPage(WebDriver driver) {
-        this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-    }
 
     public void goToQualityAssuranceLınk() {
         logger.info("Navigating to Quality Assurance page...");

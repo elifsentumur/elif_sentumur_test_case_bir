@@ -13,11 +13,12 @@ import java.time.Duration;
 
 public class HomePage {
     private static final Logger logger = LogManager.getLogger(HomePage.class);
-    WebDriver driver;
-    WebDriverWait wait;
+    private WebDriver driver;
+    private WebDriverWait wait;
+
     public HomePage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
     private By acceptButton = By.id("wt-cli-accept-all-btn");

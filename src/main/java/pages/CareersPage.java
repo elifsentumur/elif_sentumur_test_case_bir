@@ -13,12 +13,12 @@ import java.time.Duration;
 public class CareersPage {
 
     private static final Logger logger = LogManager.getLogger(CareersPage.class);  // L
-    WebDriver driver;
-    WebDriverWait wait;
+    private WebDriver driver;
+    private WebDriverWait wait;
 
     public CareersPage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
     private By locations = By.id("career-our-location");
